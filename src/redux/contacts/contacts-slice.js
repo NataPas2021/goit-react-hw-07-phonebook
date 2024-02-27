@@ -18,19 +18,6 @@ const rejected = (state, {payload}) => (
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
-    reducers: {
-        fetchContactsLoading: (state) => ({...state, isLoading: true}),
-        fetchContactsSuccess: (state, {payload}) => ({...state, isLoading: false, items: payload}), 
-        fetchContactsError: (state, {payload}) => ({...state, isLoading:false, error: payload}),
-
-        addContactLoading: (state) => ({...state, isLoading: true, error: null}),
-        addContactSuccess: (state, {payload}) => ({...state, isLoading: false, items: [...state.items, payload]}),
-        addContactError: (state, {payload}) => ({...state, isLoading: false, error: payload}),
-        
-        deleteContactLoading: (state) => ({...state, isLoading: true, error: null}),
-        deleteContactSuccess: (state, {payload}) => ({...state, isLoading: false, items: state.items.filter((item) => item.id !== payload)}),
-        deleteContactError: (state, {payload}) => ({...state, isLoading: false, error: payload}),
-    },
     extraReducers: builder => {
       builder
        .addCase(fetchContacts.pending, pending)

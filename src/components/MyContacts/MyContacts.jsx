@@ -9,9 +9,7 @@ import { fetchContacts } from '../../redux/contacts/contacts-operations';
 
 const MyContacts = () => { 
   const contacts = useSelector(selectAllContacts);
-  console.log(contacts);
   const {items, isLoading, error} = contacts;
-  console.log(items)
   const dispatch = useDispatch();
   
   useEffect(() => {
